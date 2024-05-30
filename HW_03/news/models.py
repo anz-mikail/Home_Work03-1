@@ -19,6 +19,8 @@ class Author(models.Model):
         self.ratingAuthor = pRat * 3 + cRat
         self.save()
 
+    # def __str__(self): return self.authorUser.name
+
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
@@ -49,6 +51,9 @@ class Post(models.Model):
 
     def preview(self):
         return self.text[0:123] + '...'
+
+    # def __str__(self):
+    #     return f'{self.title}-{self.text}'
 
 
 class PostCategory(models.Model):
