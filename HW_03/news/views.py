@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Author, Post, ARTICLE, NEWS
@@ -59,7 +60,9 @@ class PostSearch(ListView):
         return context
 
 
-class PostCreate_NW(CreateView):
+class PostCreate_NW(LoginRequiredMixin, CreateView):
+   # raise_exception = True
+    permission_required = ('news.add_post',)
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
@@ -70,7 +73,9 @@ class PostCreate_NW(CreateView):
         return super().form_valid(form)
 
 
-class PostCreate_AR(CreateView):
+class PostCreate_AR(LoginRequiredMixin, CreateView):
+    #raise_exception = True
+    permission_required = ('news.add_post',)
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
@@ -82,12 +87,14 @@ class PostCreate_AR(CreateView):
 
 
 class PostUpdate(UpdateView):
+    permission_required = ('news.change_post',)
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
 
 
 class PostDelete(DeleteView):
+    permission_required = ('news.delete_post',)
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('news')
