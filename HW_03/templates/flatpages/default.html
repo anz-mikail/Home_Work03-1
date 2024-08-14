@@ -28,6 +28,8 @@
                    <a class="nav-link" href="#">Home
                        <span class="sr-only">(current)</span>
                    </a>
+                   {% load cache %}
+                       {% cache 30 home %}
                </li>
                <li class="nav-item">
                    <a class="nav-link" href="/news/">Новости</a>
@@ -37,6 +39,7 @@
                </li>
                <li class="nav-item">
                     <a class="nav-link" href="/news/">коментарии</a>
+                   {% endcache %}
                </li>
            </ul>
        </div>

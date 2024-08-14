@@ -1,0 +1,34 @@
+2024-08-14 09:29:32,557 ERROR C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\utils\log.py Internal Server Error: /news/ (<class 'django.core.exceptions.FieldError'>, FieldError("Cannot resolve keyword 'dteCreation' into field. Choices are: author, author_id, categoryType, comment, dateCreation, id, postCategory, postcategory, rating, text, title"), <traceback object at 0x0000023A927C50C0>)
+Traceback (most recent call last):
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\views\generic\list.py", line 45, in get_queryset
+    queryset = queryset.order_by(*ordering)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\db\models\query.py", line 1701, in order_by
+    obj.query.add_ordering(*field_names)
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\db\models\sql\query.py", line 2253, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\db\models\sql\query.py", line 1772, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'dteCreation' into field. Choices are: author, author_id, categoryType, comment, dateCreation, id, postCategory, postcategory, rating, text, title
+2024-08-14 09:29:32,562 ERROR C:\Users\MSI\PycharmProjects\Home_work_03\venv\Lib\site-packages\django\core\servers\basehttp.py "GET /news/ HTTP/1.1" 500 117421 None
